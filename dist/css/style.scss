@@ -1,0 +1,411 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Comfortaa", cursive;
+}
+
+header {
+    width: 100%;
+    background: rgb(255, 205, 0);
+    background: linear-gradient(90deg, rgba(255, 205, 0, 1) 0%, rgba(154, 223, 103, 1) 50%, rgba(48, 207, 209, 1) 100%);
+
+    .container {
+        padding: 10px 5% 0;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    button {
+        background-color: transparent;
+        border: 0;
+        padding: 20px 20px 10px;
+        margin: 0 5px;
+        border-radius: 10px 10px 0 0;
+
+        font-family: "Comfortaa", cursive;
+        font-size: 28px;
+        color: white;
+        outline: none;
+    }
+
+    button.active {
+        background-color: white;
+        color: #30cfd1;
+    }
+
+    button:not(.active):hover,
+    button:not(.active):focus {
+        color: #30cfd1;
+        border-radius: 10px 10px 0 0;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    button.active:focus {
+        background-color: whitesmoke;
+    }
+}
+
+main {
+    max-width: 1200px;
+    padding: 0 8%;
+    margin: 50px auto;
+
+    .mainContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 40px;
+    }
+
+    .promo {
+        padding: 200px 0;
+        margin: 0 auto;
+        background: linear-gradient(
+            0deg,
+            rgba(255, 205, 0, 1) 0%,
+            rgba(154, 223, 103, 1) 50%,
+            rgba(48, 207, 209, 1) 100%
+        );
+        background: -webkit-linear-gradient(
+            0deg,
+            rgba(255, 205, 0, 1) 0%,
+            rgba(154, 223, 103, 1) 50%,
+            rgba(48, 207, 209, 1) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        text-align: center;
+        font-size: 120px;
+    }
+
+    .newTask {
+        border: 1px solid rgb(154, 223, 103);
+        border-image: linear-gradient(90deg, rgba(0, 255, 115, 1) 0%, rgba(48, 207, 209, 1) 100%);
+        border-image-slice: 1;
+
+        padding: 20px;
+
+        h2 {
+            margin-bottom: 15px;
+            color: rgba(48, 207, 209, 1);
+        }
+
+        input,
+        textarea,
+        option,
+        select {
+            width: 95%;
+            padding: 5px;
+            margin-bottom: 10px;
+
+            font-family: "Montserrat", sans-serif;
+
+            border: 1px solid rgb(154, 223, 103);
+            border-image: linear-gradient(90deg, rgba(0, 255, 115, 1) 0%, rgba(48, 207, 209, 1) 100%);
+            border-image-slice: 1;
+            outline: none;
+            resize: none;
+        }
+
+        option,
+        select {
+            width: 98.5%;
+        }
+
+        input:focus,
+        textarea:focus,
+        option:focus,
+        select:focus {
+            border: 1px solid rgb(48, 207, 209);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+
+            color: white;
+            font-size: 22px;
+
+            font-family: "Comfortaa", cursive;
+            background: rgb(0, 255, 115);
+            background: linear-gradient(90deg, rgba(0, 255, 115, 1) 0%, rgba(48, 207, 209, 1) 100%);
+            outline: none;
+            border: none;
+        }
+
+        button:hover,
+        button:focus {
+            background: rgba(0, 255, 115, 0.8);
+            background: linear-gradient(90deg, rgba(0, 255, 115, 0.8) 0%, rgba(48, 207, 209, 0.8) 100%);
+        }
+    }
+
+    .todayTasks {
+        border: 1px solid rgb(241, 255, 0);
+        border-image: linear-gradient(90deg, rgba(241, 255, 0, 1) 0%, rgba(241, 92, 55, 1) 100%);
+        border-image-slice: 1;
+
+        padding: 20px;
+        margin-bottom: 40px;
+
+        h2 {
+            color: rgb(241, 92, 55);
+            margin-bottom: 20px;
+        }
+
+        li {
+            display: flex;
+            margin-bottom: 20px;
+            list-style-type: none;
+            cursor: pointer;
+        }
+        input {
+            margin-right: 20px;
+        }
+
+        input:focus {
+            outline: 1px solid rgb(241, 154, 55);
+        }
+
+        .taskBlock {
+            margin-left: 10px;
+            margin-top: 10px;
+
+            display: none;
+        }
+    }
+
+    .dateAndTime {
+        border: 1px solid rgb(55, 221, 241);
+        border-image: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+        border-image-slice: 1;
+
+        padding: 20px;
+
+        p.time {
+            background: -webkit-linear-gradient(0deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            text-align: center;
+            font-size: 120px;
+        }
+
+        p.date {
+            text-align: center;
+            font-size: 30px;
+            color: rgb(119, 0, 255);
+        }
+    }
+
+    .taskCard {
+        border: 1px solid rgb(55, 221, 241);
+        border-image: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+        border-image-slice: 1;
+
+        padding: 20px;
+
+        .cardTitle {
+            background: -webkit-linear-gradient(0deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            margin-bottom: 30px;
+        }
+
+        p {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+
+            border-bottom: 1px dashed rgb(55, 221, 241);
+            border-image: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            border-image-slice: 1;
+        }
+
+        b {
+            color: rgb(132, 0, 255);
+        }
+
+        span {
+            text-align: right;
+        }
+    }
+
+    .searchForm {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "i d"
+            "p c"
+            ". b";
+        grid-gap: 20px;
+
+        margin-bottom: 30px;
+
+        span {
+            margin-left: 7px;
+        }
+
+        .searchBlock {
+            grid-area: "i";
+
+            input {
+                padding: 7px;
+                width: 100%;
+            }
+        }
+
+        .dateBlock {
+            grid-area: "d";
+
+            input {
+                padding: 5px;
+                width: 100%;
+            }
+        }
+
+        .priorityBlock {
+            grid-area: "p";
+
+            label {
+                margin-right: 20px;
+            }
+        }
+
+        .complexityBlock {
+            grid-area: "c";
+            label {
+                margin-right: 20px;
+            }
+        }
+
+        .searchButt {
+            grid-area: "b";
+            padding: 10px 20px;
+            width: 200px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 22px;
+
+            font-family: "Comfortaa", cursive;
+            background: -webkit-linear-gradient(0deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            outline: none;
+
+            border: 2px solid rgba(55, 221, 241, 1);
+            border-image: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            border-image-slice: 1;
+        }
+
+        button:hover,
+        button:focus {
+            -webkit-text-fill-color: white;
+            background: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+        }
+    }
+
+    .cardsContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+
+        h3 {
+            font-size: 30px;
+            background: -webkit-linear-gradient(0deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            padding: 20px;
+
+            border: 1px solid rgba(55, 221, 241, 1);
+            border-image: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            border-image-slice: 1;
+        }
+
+        .cardTitle {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+
+            button {
+                border: 0;
+                background-color: transparent;
+                margin-left: 7px;
+            }
+
+            button:hover {
+                opacity: 0.7;
+            }
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+
+            border-bottom: 1px solid rgba(55, 221, 241, 1);
+
+            margin-bottom: 7px;
+            padding-bottom: 3px;
+        }
+        li:last-child {
+            flex-direction: column;
+        }
+    }
+
+    .titleEditBlock {
+        display: flex;
+    }
+
+    .modalWrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-color: #242424b7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .modalEditTask {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+
+        width: 300px;
+
+        h3 {
+            font-size: 30px;
+            background: -webkit-linear-gradient(0deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        button {
+            border: 0;
+            background-color: transparent;
+            margin-left: 7px;
+        }
+
+        button:hover {
+            opacity: 0.7;
+        }
+
+        .titleEditBlock {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

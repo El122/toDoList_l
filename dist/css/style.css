@@ -1,0 +1,436 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Comfortaa", cursive;
+}
+
+header {
+  width: 100%;
+  background: #ffcd00;
+  background: -webkit-gradient(linear, left top, right top, from(#ffcd00), color-stop(50%, #9adf67), to(#30cfd1));
+  background: linear-gradient(90deg, #ffcd00 0%, #9adf67 50%, #30cfd1 100%);
+}
+
+header .container {
+  padding: 10px 5% 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header button {
+  background-color: transparent;
+  border: 0;
+  padding: 20px 20px 10px;
+  margin: 0 5px;
+  border-radius: 10px 10px 0 0;
+  font-family: "Comfortaa", cursive;
+  font-size: 28px;
+  color: white;
+  outline: none;
+}
+
+header button.active {
+  background-color: white;
+  color: #30cfd1;
+}
+
+header button:not(.active):hover,
+header button:not(.active):focus {
+  color: #30cfd1;
+  border-radius: 10px 10px 0 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+header button.active:focus {
+  background-color: whitesmoke;
+}
+
+main {
+  max-width: 1200px;
+  padding: 0 8%;
+  margin: 50px auto;
+}
+
+main .mainContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+
+main .promo {
+  padding: 200px 0;
+  margin: 0 auto;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffcd00), color-stop(50%, #9adf67), to(#30cfd1));
+  background: linear-gradient(0deg, #ffcd00 0%, #9adf67 50%, #30cfd1 100%);
+  background: -webkit-linear-gradient(0deg, #ffcd00 0%, #9adf67 50%, #30cfd1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 120px;
+}
+
+main .newTask {
+  border: 1px solid #9adf67;
+  -o-border-image: linear-gradient(90deg, #00ff73 0%, #30cfd1 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#00ff73), to(#30cfd1));
+     border-image: linear-gradient(90deg, #00ff73 0%, #30cfd1 100%);
+  border-image-slice: 1;
+  padding: 20px;
+}
+
+main .newTask h2 {
+  margin-bottom: 15px;
+  color: #30cfd1;
+}
+
+main .newTask input,
+main .newTask textarea,
+main .newTask option,
+main .newTask select {
+  width: 95%;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid #9adf67;
+  -o-border-image: linear-gradient(90deg, #00ff73 0%, #30cfd1 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#00ff73), to(#30cfd1));
+     border-image: linear-gradient(90deg, #00ff73 0%, #30cfd1 100%);
+  border-image-slice: 1;
+  outline: none;
+  resize: none;
+}
+
+main .newTask option,
+main .newTask select {
+  width: 98.5%;
+}
+
+main .newTask input:focus,
+main .newTask textarea:focus,
+main .newTask option:focus,
+main .newTask select:focus {
+  border: 1px solid #30cfd1;
+}
+
+main .newTask button {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  font-size: 22px;
+  font-family: "Comfortaa", cursive;
+  background: #00ff73;
+  background: -webkit-gradient(linear, left top, right top, from(#00ff73), to(#30cfd1));
+  background: linear-gradient(90deg, #00ff73 0%, #30cfd1 100%);
+  outline: none;
+  border: none;
+}
+
+main .newTask button:hover,
+main .newTask button:focus {
+  background: rgba(0, 255, 115, 0.8);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 255, 115, 0.8)), to(rgba(48, 207, 209, 0.8)));
+  background: linear-gradient(90deg, rgba(0, 255, 115, 0.8) 0%, rgba(48, 207, 209, 0.8) 100%);
+}
+
+main .todayTasks {
+  border: 1px solid #f1ff00;
+  -o-border-image: linear-gradient(90deg, #f1ff00 0%, #f15c37 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#f1ff00), to(#f15c37));
+     border-image: linear-gradient(90deg, #f1ff00 0%, #f15c37 100%);
+  border-image-slice: 1;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+main .todayTasks h2 {
+  color: #f15c37;
+  margin-bottom: 20px;
+}
+
+main .todayTasks li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+main .todayTasks input {
+  margin-right: 20px;
+}
+
+main .todayTasks input:focus {
+  outline: 1px solid #f19a37;
+}
+
+main .todayTasks .taskBlock {
+  margin-left: 10px;
+  margin-top: 10px;
+  display: none;
+}
+
+main .dateAndTime {
+  border: 1px solid #37ddf1;
+  -o-border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
+     border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+  border-image-slice: 1;
+  padding: 20px;
+}
+
+main .dateAndTime p.time {
+  background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 120px;
+}
+
+main .dateAndTime p.date {
+  text-align: center;
+  font-size: 30px;
+  color: #7700ff;
+}
+
+main .taskCard {
+  border: 1px solid #37ddf1;
+  -o-border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
+     border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+  border-image-slice: 1;
+  padding: 20px;
+}
+
+main .taskCard .cardTitle {
+  background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+}
+
+main .taskCard p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #37ddf1;
+  -o-border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
+     border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+  border-image-slice: 1;
+}
+
+main .taskCard b {
+  color: #8400ff;
+}
+
+main .taskCard span {
+  text-align: right;
+}
+
+main .searchForm {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "i d" "p c" ". b";
+  grid-gap: 20px;
+  margin-bottom: 30px;
+}
+
+main .searchForm span {
+  margin-left: 7px;
+}
+
+main .searchForm .searchBlock {
+  grid-area: "i";
+}
+
+main .searchForm .searchBlock input {
+  padding: 7px;
+  width: 100%;
+}
+
+main .searchForm .dateBlock {
+  grid-area: "d";
+}
+
+main .searchForm .dateBlock input {
+  padding: 5px;
+  width: 100%;
+}
+
+main .searchForm .priorityBlock {
+  grid-area: "p";
+}
+
+main .searchForm .priorityBlock label {
+  margin-right: 20px;
+}
+
+main .searchForm .complexityBlock {
+  grid-area: "c";
+}
+
+main .searchForm .complexityBlock label {
+  margin-right: 20px;
+}
+
+main .searchForm .searchButt {
+  grid-area: "b";
+  padding: 10px 20px;
+  width: 200px;
+}
+
+main .searchForm button {
+  width: 100%;
+  padding: 10px;
+  font-size: 22px;
+  font-family: "Comfortaa", cursive;
+  background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  outline: none;
+  border: 2px solid #37ddf1;
+  -o-border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
+     border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+  border-image-slice: 1;
+}
+
+main .searchForm button:hover,
+main .searchForm button:focus {
+  -webkit-text-fill-color: white;
+  background: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
+  background: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+}
+
+main .cardsContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+main .cardsContainer h3 {
+  font-size: 30px;
+  background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .cardsContainer .card {
+  padding: 20px;
+  border: 1px solid #37ddf1;
+  -o-border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
+     border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+  border-image-slice: 1;
+}
+
+main .cardsContainer .cardTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+main .cardsContainer .cardTitle button {
+  border: 0;
+  background-color: transparent;
+  margin-left: 7px;
+}
+
+main .cardsContainer .cardTitle button:hover {
+  opacity: 0.7;
+}
+
+main .cardsContainer li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #37ddf1;
+  margin-bottom: 7px;
+  padding-bottom: 3px;
+}
+
+main .cardsContainer li:last-child {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .titleEditBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .modalWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #242424b7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .modalEditTask {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  width: 300px;
+}
+
+main .modalEditTask h3 {
+  font-size: 30px;
+  background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .modalEditTask button {
+  border: 0;
+  background-color: transparent;
+  margin-left: 7px;
+}
+
+main .modalEditTask button:hover {
+  opacity: 0.7;
+}
+
+main .modalEditTask .titleEditBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=style.css.map */
