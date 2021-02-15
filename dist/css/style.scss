@@ -406,6 +406,70 @@ main {
         .titleEditBlock {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .modalContainer {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 10px;
+            }
+
+            input,
+            textarea,
+            option,
+            select {
+                width: 95%;
+                padding: 5px;
+
+                font-family: "Montserrat", sans-serif;
+
+                border: 1px solid rgba(55, 221, 241, 1);
+                border-image: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+                border-image-slice: 1;
+                outline: none;
+                resize: none;
+            }
+
+            option,
+            select {
+                width: 98.5%;
+            }
+
+            input:focus,
+            textarea:focus,
+            option:focus,
+            select:focus {
+                border: 1px solid rgb(48, 207, 209);
+            }
+
+            .saveBtn {
+                margin-top: 15px;
+                margin-left: 0;
+                width: 98.5%;
+                padding: 10px;
+                font-size: 22px;
+
+                font-family: "Comfortaa", cursive;
+                background: -webkit-linear-gradient(0deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                outline: none;
+
+                border: 2px solid rgba(55, 221, 241, 1);
+                border-image: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+                border-image-slice: 1;
+            }
+
+            .saveBtn:hover,
+            .saveBtn:focus {
+                -webkit-text-fill-color: white;
+                background: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            }
         }
     }
 }

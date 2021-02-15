@@ -432,5 +432,80 @@ main .modalEditTask .titleEditBlock {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+main .modalEditTask .modalContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .modalEditTask .modalContainer label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+}
+
+main .modalEditTask .modalContainer input,
+main .modalEditTask .modalContainer textarea,
+main .modalEditTask .modalContainer option,
+main .modalEditTask .modalContainer select {
+  width: 95%;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid #37ddf1;
+  -o-border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
+     border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+  border-image-slice: 1;
+  outline: none;
+  resize: none;
+}
+
+main .modalEditTask .modalContainer option,
+main .modalEditTask .modalContainer select {
+  width: 98.5%;
+}
+
+main .modalEditTask .modalContainer input:focus,
+main .modalEditTask .modalContainer textarea:focus,
+main .modalEditTask .modalContainer option:focus,
+main .modalEditTask .modalContainer select:focus {
+  border: 1px solid #30cfd1;
+}
+
+main .modalEditTask .modalContainer .saveBtn {
+  margin-top: 15px;
+  margin-left: 0;
+  width: 98.5%;
+  padding: 10px;
+  font-size: 22px;
+  font-family: "Comfortaa", cursive;
+  background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  outline: none;
+  border: 2px solid #37ddf1;
+  -o-border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
+     border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
+  border-image-slice: 1;
+}
+
+main .modalEditTask .modalContainer .saveBtn:hover,
+main .modalEditTask .modalContainer .saveBtn:focus {
+  -webkit-text-fill-color: white;
+  background: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
+  background: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
 }
 /*# sourceMappingURL=style.css.map */

@@ -29,7 +29,7 @@ let checkField = (elem, field) => {
     return field;
 }
 
-let createFields = () => {
+let createFields = (task) => {
     let block = document.createElement("div");
 
     for (let elem of newTaskForm) {
@@ -37,6 +37,7 @@ let createFields = () => {
         let field = document.createElement(elem.field);
 
         field = checkField(elem, field);
+        field.value = task[elem.id];
         field.setAttribute("id", elem.id);
         label.innerHTML = elem.label;
 
@@ -117,35 +118,59 @@ const createSearchForm = () => {
     return form;
 }
 
-const createModal = () => {
+const createModal = (task, tasks) => {
     let modalWrapper = document.createElement("div");
     let modal = document.createElement("div");
     let modalTitle = document.createElement("div");
     let title = document.createElement("h3");
     let closeBtn = document.createElement("button");
-    let modalContainer = document.createElement("div");
-    let fields = createFields();
+    let saveBtn = document.createElement("button");
+    let modalContainer = createFields(task);
 
     modalWrapper.classList.add("modalWrapper");
     modal.classList.add("modalEditTask");
     modalTitle.classList.add("titleEditBlock")
     modalContainer.classList.add("modalContainer")
-    fields.classList.add("newTask");
+    saveBtn.classList.add("saveBtn")
 
     title.innerText = "Edit task";
     closeBtn.innerHTML = svgData.closeSvg;
+    saveBtn.innerText = "Save";
 
     closeBtn.onclick = () => {
-        modalWrapper.style.display = "none";
+        modalWrapper.remove();
+    }
+    saveBtn.onclick = (e) => {
+        e.preventDefault();
+        let title = document.querySelector("#title").value;
+        let priority = document.querySelector("#priority").value;
+        let complexity = document.querySelector("#сomplexity").value;
+        let date = document.querySelector("#date").value;
+        let description = document.querySelector("#description").value;
+
+        if (title == undefined || date == undefined) {
+            alert("Title or date is not filled");
+            return 1;
+        }
+
+        task.title = title;
+        task.priority = priority;
+        task.complexity = complexity;
+        task.date = date;
+        task.description = description;
+
+        updateLocalStorage();
+        renderTasksPage(tasks);
+        modalWrapper.remove();
     }
     modal.onclick = (e) => {
         e.stopPropagation();
     }
     modalWrapper.onclick = () => {
-        modalWrapper.style.display = "none";
+        modalWrapper.remove();
     }
 
-    modalContainer.appendChild(fields);
+    modalContainer.appendChild(saveBtn);
     modalTitle.appendChild(title);
     modalTitle.appendChild(closeBtn);
     modal.appendChild(modalTitle);
@@ -155,7 +180,7 @@ const createModal = () => {
     return modalWrapper;
 }
 
-const createCard = (task) => {
+const createCard = (task, tasks) => {
     let card = document.createElement("div");
     let cardTitle = document.createElement("div");
     let title = document.createElement("h3");
@@ -189,7 +214,7 @@ const createCard = (task) => {
         renderTasksPage(tasks);
     }
     editButt.onclick = () => {
-        let modalWrapper = createModal();
+        let modalWrapper = createModal(task, tasks);
         document.getElementsByTagName("main")[0].appendChild(modalWrapper);
     }
 
@@ -208,7 +233,7 @@ const createTasksCards = (tasks) => {
     cardsContainer.classList.add("cardsContainer");
 
     for (let task of tasks) {
-        let card = createCard(task);
+        let card = createCard(task, tasks);
         cardsContainer.appendChild(card);
     }
 
@@ -218,6 +243,7 @@ const createTasksCards = (tasks) => {
 const renderTasksPage = (tasks) => {
     let main = document.getElementsByClassName("mainContainer")[0];
 
+    main.innerHTML = "";
     let searchForm = createSearchForm();
     let tasksCards = createTasksCards(tasks);
 
