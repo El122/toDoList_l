@@ -330,6 +330,7 @@ main .cardsContainer h3 {
 }
 
 main .cardsContainer .card {
+  position: relative;
   padding: 20px;
   border: 1px solid #37ddf1;
   -o-border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
@@ -345,6 +346,9 @@ main .cardsContainer .cardTitle {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin-bottom: 15px;
 }
 
@@ -356,6 +360,10 @@ main .cardsContainer .cardTitle button {
 
 main .cardsContainer .cardTitle button:hover {
   opacity: 0.7;
+}
+
+main .cardsContainer .cardInfo {
+  margin-bottom: 40px;
 }
 
 main .cardsContainer li {
@@ -375,6 +383,24 @@ main .cardsContainer li:last-child {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+main .cardsContainer .finishedBtn {
+  font-size: 22px;
+  font-family: "Comfortaa", cursive;
+  border: none;
+  background: transparent;
+  outline: none;
+  position: absolute;
+  bottom: 20px;
+  background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .cardsContainer .finishedBtn:hover,
+main .cardsContainer .finishedBtn:focus {
+  opacity: 0.7;
 }
 
 main .titleEditBlock {

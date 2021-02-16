@@ -326,16 +326,17 @@ main {
         }
 
         .card {
+            position: relative;
             padding: 20px;
 
             border: 1px solid rgba(55, 221, 241, 1);
             border-image: linear-gradient(90deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
             border-image-slice: 1;
         }
-
         .cardTitle {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 15px;
 
             button {
@@ -349,6 +350,10 @@ main {
             }
         }
 
+        .cardInfo {
+            margin-bottom: 40px;
+        }
+
         li {
             display: flex;
             justify-content: space-between;
@@ -360,6 +365,27 @@ main {
         }
         li:last-child {
             flex-direction: column;
+        }
+
+        .finishedBtn {
+            font-size: 22px;
+
+            font-family: "Comfortaa", cursive;
+            border: none;
+            background: transparent;
+            outline: none;
+
+            position: absolute;
+            bottom: 20px;
+
+            background: -webkit-linear-gradient(0deg, rgba(55, 221, 241, 1) 0%, rgba(205, 0, 255, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .finishedBtn:hover,
+        .finishedBtn:focus {
+            opacity: 0.7;
         }
     }
 

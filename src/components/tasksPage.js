@@ -188,14 +188,24 @@ const createCard = (task, tasks) => {
     let cardInfo = document.createElement("ul");
     let delButt = document.createElement("button");
     let editButt = document.createElement("button");
+    let finishedBtn = document.createElement("button");;
 
     card.classList.add("card");
     cardTitle.classList.add("cardTitle");
     cardInfo.classList.add("cardInfo");
     titleEditBlock.classList.add("titleEditBlock");
+    finishedBtn.classList.add("finishedBtn");
 
     let info = ["Priority", "Complexity", "Date", "Description"];
     let data = ["priority", "complexity", "date", "description"];
+
+    if (task.finished) {
+        finishedBtn.innerHTML = "<b>Finished</b>";
+        card.style.filter = "grayscale(1)";
+    } else {
+        finishedBtn.innerHTML = "<b>Not finished</b>";
+        card.style.filter = "grayscale(0)";
+    }
 
     title.innerText = task.title;
     delButt.innerHTML = svgData.delSvg;
@@ -217,6 +227,16 @@ const createCard = (task, tasks) => {
         let modalWrapper = createModal(task, tasks);
         document.getElementsByTagName("main")[0].appendChild(modalWrapper);
     }
+    finishedBtn.onclick = () => {
+        task.finished = !task.finished;
+        if (task.finished) {
+            finishedBtn.innerHTML = "<b>Finished</b>";
+            card.style.filter = "grayscale(1)";
+        } else {
+            finishedBtn.innerHTML = "<b>Not finished</b>";
+            card.style.filter = "grayscale(0)";
+        }
+    }
 
     titleEditBlock.appendChild(editButt);
     titleEditBlock.appendChild(delButt);
@@ -224,6 +244,7 @@ const createCard = (task, tasks) => {
     cardTitle.appendChild(titleEditBlock);
     card.appendChild(cardTitle);
     card.appendChild(cardInfo);
+    card.appendChild(finishedBtn);
 
     return card;
 }
