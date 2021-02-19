@@ -1,9 +1,45 @@
 import { tasks } from "./data";
 import { renderSecondBlock } from "./secondHomeBlock";
+import { getDate } from "./dateFunctions";
 
 let updateLocalStorage = () => {
     let jsonTasks = JSON.stringify(tasks);
     localStorage.setItem("tasks", jsonTasks);
+}
+
+const getTask = (task) => {
+    let li = document.createElement("li");
+    let p = document.createElement("div");
+    let checkTaskBox = document.createElement("input");
+    let taskBlock = document.createElement("div");
+
+    p.classList.add("task");
+    p.innerHTML = task.title;
+    checkTaskBox.type = "checkbox";
+    taskBlock.classList.add("taskBlock");
+    taskBlock.innerHTML = "<p><b>Priority:</b> " + task.priority +
+        "</p><p><b>Complexity:</b> " + task.complexity +
+        "</p><p><b>Date:</b> " + task.date +
+        "</p><p><b>Description:</b> " + task.description + "</p>";
+
+    li.appendChild(checkTaskBox);
+    li.appendChild(p);
+    p.appendChild(taskBlock);
+
+    p.onclick = () => {
+        let visible = taskBlock.style.display;
+        if (visible == "none") {
+            taskBlock.style.display = "block";
+        } else {
+            taskBlock.style.display = "none";
+        }
+    }
+
+    checkTaskBox.onclick = () => {
+        task.finished = checkTaskBox.checked;
+    }
+
+    return li;
 }
 
 const addTask = (e) => {
@@ -34,6 +70,12 @@ const addTask = (e) => {
         finished: false
     }
 
+    if (getDate("Today") == newTask.date) {
+        document.getElementsByClassName("todayTasks")[0].getElementsByTagName("ul")[0].appendChild(getTask(newTask));
+    } else if (getDate("Tomorrow") == newTask.date) {
+        document.getElementsByClassName("todayTasks")[1].getElementsByTagName("ul")[0].appendChild(getTask(newTask));
+    }
+
     tasks.push(newTask);
 
     let main = document.getElementsByClassName("mainContainer")[0];
@@ -44,4 +86,4 @@ const addTask = (e) => {
 }
 
 
-export { updateLocalStorage, addTask };
+export { updateLocalStorage, addTask, getTask };
