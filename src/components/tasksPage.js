@@ -1,5 +1,5 @@
 import { updateLocalStorage } from "./tasks";
-import { svgData, radioBtnValue, newTaskForm } from "./data";
+import { svgData, radioBtnValue, newTaskForm, tasks } from "./data";
 
 let checkField = (elem, field) => {
     switch (elem.field) {
@@ -86,7 +86,8 @@ const createSearchForm = () => {
     let dateLabel = document.createElement("label");
     let dateLabelText = document.createElement("span");
     let date = document.createElement("input");
-    let butt = document.createElement("button");
+    let searchButt = document.createElement("button");
+    let cleanButt = document.createElement("button");
 
     let priorityBlock = createRadioBlock(radioBtnValue.priority, "priority");
     let complexityBlock = createRadioBlock(radioBtnValue.complexity, "complexity");
@@ -96,11 +97,13 @@ const createSearchForm = () => {
     dateLabel.classList.add("dateBlock");
     priorityBlock.classList.add("priorityBlock");
     complexityBlock.classList.add("complexityBlock");
-    butt.classList.add("searchButt");
+    searchButt.classList.add("searchButt");
+    cleanButt.classList.add("cleanButt");
 
     input.type = "text";
     date.type = "date";
-    butt.innerText = "Find";
+    searchButt.innerText = "Find";
+    cleanButt.innerText = "Show all";
 
     inputLabelText.innerHTML = "Task<br>";
     dateLabelText.innerHTML = "Date<br>";
@@ -113,7 +116,35 @@ const createSearchForm = () => {
     form.appendChild(dateLabel);
     form.appendChild(priorityBlock);
     form.appendChild(complexityBlock);
-    form.appendChild(butt);
+    form.appendChild(searchButt);
+    form.appendChild(cleanButt);
+
+    searchButt.onclick = (e) => {
+        e.preventDefault();
+        let taskVal = input.value;
+        let dateVal = date.value;
+        let priorityVal = priorityBlock.querySelector('input[name="priority"]:checked')?.value.toLowerCase() || "";
+        let comlpexityVal = complexityBlock.querySelector('input[name="complexity"]:checked')?.value.toLowerCase() || "";
+        let findTasks = [];
+
+        for (let task of tasks) {
+            if (
+                ((task.title == taskVal) || (task.description == taskVal) || (taskVal == "")) &&
+                ((task.date == dateVal) || (task.date == dateVal) || (dateVal == "")) &&
+                ((task.priority == priorityVal) || (task.priority == priorityVal) || (priorityVal == "")) &&
+                ((task.complexity == comlpexityVal) || (task.complexity == comlpexityVal) || (comlpexityVal == ""))
+            ) {
+                findTasks.push(task);
+            }
+        }
+
+        renderTasksPage(findTasks);
+    }
+
+    cleanButt.onclick = (e) => {
+        e.preventDefault();
+        renderTasksPage(tasks);
+    }
 
     return form;
 }
@@ -265,7 +296,7 @@ const renderTasksPage = (tasks) => {
     let main = document.getElementsByClassName("mainContainer")[0];
 
     main.innerHTML = "";
-    let searchForm = createSearchForm();
+    let searchForm = createSearchForm(tasks);
     let tasksCards = createTasksCards(tasks);
 
     main.appendChild(searchForm);

@@ -242,7 +242,7 @@ main .searchForm {
   display: grid;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
-      grid-template-areas: "i d" "p c" ". b";
+      grid-template-areas: "i d" "p c" "cb sb";
   grid-gap: 20px;
   margin-bottom: 30px;
 }
@@ -286,14 +286,9 @@ main .searchForm .complexityBlock label {
 }
 
 main .searchForm .searchButt {
-  grid-area: "b";
+  grid-area: "sb";
   padding: 10px 20px;
   width: 200px;
-}
-
-main .searchForm button {
-  width: 100%;
-  padding: 10px;
   font-size: 22px;
   font-family: "Comfortaa", cursive;
   background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
@@ -307,8 +302,18 @@ main .searchForm button {
   border-image-slice: 1;
 }
 
-main .searchForm button:hover,
-main .searchForm button:focus {
+main .searchForm .cleanButt {
+  grid-area: "cb";
+  width: 200px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  font-family: "Comfortaa", cursive;
+  font-size: 22px;
+  background: transparent;
+}
+
+main .searchForm .searchButt:hover,
+main .searchForm .searchButt:focus {
   -webkit-text-fill-color: white;
   background: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
   background: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
