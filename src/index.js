@@ -16,9 +16,6 @@ const controller = (page) => {
             main.style.display = "block";
             renderTasksPage(tasks);
             break;
-        case "future":
-            console.log("Future Page");
-            break;
     }
 }
 
