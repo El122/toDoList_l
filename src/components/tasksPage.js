@@ -121,18 +121,19 @@ const createSearchForm = () => {
 
     searchButt.onclick = (e) => {
         e.preventDefault();
-        let taskVal = input.value;
+        let taskregexp = input.value;
         let dateVal = date.value;
         let priorityVal = priorityBlock.querySelector('input[name="priority"]:checked')?.value.toLowerCase() || "";
         let comlpexityVal = complexityBlock.querySelector('input[name="complexity"]:checked')?.value.toLowerCase() || "";
         let findTasks = [];
+        taskregexp = new RegExp(taskregexp, "i");
 
         for (let task of tasks) {
             if (
-                ((task.title == taskVal) || (task.description == taskVal) || (taskVal == "")) &&
-                ((task.date == dateVal) || (task.date == dateVal) || (dateVal == "")) &&
-                ((task.priority == priorityVal) || (task.priority == priorityVal) || (priorityVal == "")) &&
-                ((task.complexity == comlpexityVal) || (task.complexity == comlpexityVal) || (comlpexityVal == ""))
+                (taskregexp.test(task.title) || taskregexp.test(task.description) || (taskregexp == "")) &&
+                ((task.date == dateVal) || (dateVal == "")) &&
+                ((task.priority == priorityVal) || (priorityVal == "")) &&
+                ((task.complexity == comlpexityVal) || (comlpexityVal == ""))
             ) {
                 findTasks.push(task);
             }
@@ -267,6 +268,7 @@ const createCard = (task, tasks) => {
             finishedBtn.innerHTML = "<b>Not finished</b>";
             card.style.filter = "grayscale(0)";
         }
+        updateLocalStorage(tasks);
     }
 
     titleEditBlock.appendChild(editButt);
