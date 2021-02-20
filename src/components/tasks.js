@@ -3,6 +3,9 @@ import { renderSecondBlock } from "./secondHomeBlock";
 import { getDate } from "./dateFunctions";
 
 let updateLocalStorage = () => {
+    tasks.sort((a, b) => {
+        return (a.finished === b.finished) ? 1 : a.finished ? 1 : -1;
+    });
     let jsonTasks = JSON.stringify(tasks);
     localStorage.setItem("tasks", jsonTasks);
 }
