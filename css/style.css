@@ -242,7 +242,7 @@ main .searchForm {
   display: grid;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
-      grid-template-areas: "i d" "p c" ". b";
+      grid-template-areas: "i d" "p c" "cb sb";
   grid-gap: 20px;
   margin-bottom: 30px;
 }
@@ -286,14 +286,9 @@ main .searchForm .complexityBlock label {
 }
 
 main .searchForm .searchButt {
-  grid-area: "b";
+  grid-area: "sb";
   padding: 10px 20px;
   width: 200px;
-}
-
-main .searchForm button {
-  width: 100%;
-  padding: 10px;
   font-size: 22px;
   font-family: "Comfortaa", cursive;
   background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
@@ -307,8 +302,18 @@ main .searchForm button {
   border-image-slice: 1;
 }
 
-main .searchForm button:hover,
-main .searchForm button:focus {
+main .searchForm .cleanButt {
+  grid-area: "cb";
+  width: 200px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  font-family: "Comfortaa", cursive;
+  font-size: 22px;
+  background: transparent;
+}
+
+main .searchForm .searchButt:hover,
+main .searchForm .searchButt:focus {
   -webkit-text-fill-color: white;
   background: -webkit-gradient(linear, left top, right top, from(#37ddf1), to(#cd00ff));
   background: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
@@ -330,6 +335,7 @@ main .cardsContainer h3 {
 }
 
 main .cardsContainer .card {
+  position: relative;
   padding: 20px;
   border: 1px solid #37ddf1;
   -o-border-image: linear-gradient(90deg, #37ddf1 0%, #cd00ff 100%);
@@ -361,6 +367,10 @@ main .cardsContainer .cardTitle button:hover {
   opacity: 0.7;
 }
 
+main .cardsContainer .cardInfo {
+  margin-bottom: 40px;
+}
+
 main .cardsContainer li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -378,6 +388,24 @@ main .cardsContainer li:last-child {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+main .cardsContainer .finishedBtn {
+  font-size: 22px;
+  font-family: "Comfortaa", cursive;
+  border: none;
+  background: transparent;
+  outline: none;
+  position: absolute;
+  bottom: 20px;
+  background: -webkit-linear-gradient(0deg, #37ddf1 0%, #cd00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .cardsContainer .finishedBtn:hover,
+main .cardsContainer .finishedBtn:focus {
+  opacity: 0.7;
 }
 
 main .titleEditBlock {
