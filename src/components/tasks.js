@@ -83,7 +83,6 @@ const addTask = (e) => {
 
     let main = document.getElementsByClassName("mainContainer")[0];
     updateLocalStorage();
-    renderSecondBlock(main, tasks);
 
     return newTask
 }
